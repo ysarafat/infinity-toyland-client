@@ -1,0 +1,33 @@
+.slider_1 {
+  background-image: linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 0.575) 0%,
+      rgba(0, 0, 0, 0.575) 100%
+    ),
+    url("https://i.ibb.co/YDN7t58/cute-baby-with-toys.webp") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slider_2 {
+  background-image: linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 0.575) 0%,
+      rgba(0, 0, 0, 0.575) 100%
+    ),
+    url("https://i.ibb.co/K2PSSG1/6008739-3107156.webp") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slider_3 {
+  background-image: linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 0.575) 0%,
+      rgba(0, 0, 0, 0.575) 100%
+    ),
+    url("https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3childrenplayingfuntoysshutterstock.jpg?w=640&crop=1") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

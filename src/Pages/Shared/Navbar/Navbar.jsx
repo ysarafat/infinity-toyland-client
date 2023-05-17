@@ -49,7 +49,7 @@ function Navbar() {
         </>
     );
     return (
-        <div className="sticky top-0 z-40 border-b bg-slate-200">
+        <div className="sticky top-0 z-40 border-b py-2 ">
             <div className="container mx-auto py-3 hidden lg:flex justify-between items-center px-4">
                 <Link to="/">
                     <h1 className="text-2xl font-bold text-primary-text ">
@@ -57,7 +57,7 @@ function Navbar() {
                     </h1>
                 </Link>
                 <div>
-                    <ul className="flex items-center gap-5">{navLinks}</ul>
+                    <ul className="flex items-center text-base font-medium gap-5">{navLinks}</ul>
                 </div>
             </div>
             <div className="lg:hidden text-primary-text py-2 px-4 flex justify-between items-center">
@@ -65,7 +65,7 @@ function Navbar() {
                     {isOpen ? <HiXMark size={30} /> : <HiBars3BottomLeft size={30} />}
                 </button>
                 {isOpen && (
-                    <ul className="absolute top-12 backdrop:blur-md bg-slate-100 border left-0 w-1/2 py-3 px-4 flex flex-col gap-2 min-h-[calc(100vh-48px)] ">
+                    <ul className="absolute top-[65px] backdrop:blur-md bg-slate-100 border left-0 w-1/2 py-3 px-4 flex flex-col gap-2 min-h-[calc(100vh-48px)] ">
                         {navLinks}
                     </ul>
                 )}
