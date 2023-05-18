@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
 import AddToy from '../Pages/AddToy/AddToy';
 import Home from '../Pages/Home/Home/Home';
+import Register from '../Pages/Register/Register';
 import UpdateToy from '../Pages/UpdateToy/UpdateToy';
 
 const routes = new createBrowserRouter([
@@ -20,6 +21,10 @@ const routes = new createBrowserRouter([
             {
                 path: 'update-toy',
                 element: <UpdateToy />,
+            },
+            {
+                path: 'register',
+                element: <Register />,
             },
         ],
     },
