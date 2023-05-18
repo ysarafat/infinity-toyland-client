@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
 import AddToy from '../Pages/AddToy/AddToy';
 import Home from '../Pages/Home/Home/Home';
+import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import UpdateToy from '../Pages/UpdateToy/UpdateToy';
 
@@ -19,12 +20,16 @@ const routes = new createBrowserRouter([
                 element: <AddToy />,
             },
             {
-                path: 'update-toy',
+                path: '/update-toy',
                 element: <UpdateToy />,
             },
             {
-                path: 'register',
+                path: '/register',
                 element: <Register />,
+            },
+            {
+                path: '/login',
+                element: <Login />,
             },
         ],
     },
