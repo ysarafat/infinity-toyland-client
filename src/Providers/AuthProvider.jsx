@@ -1,18 +1,23 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import {
+    GoogleAuthProvider,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
     signInWithEmailAndPassword,
+    signInWithPopup,
     signOut,
     updateProfile,
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 
+import Swal from 'sweetalert2';
 import app from '../Firebase/Firebase.config';
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
+const googleProvider = new GoogleAuthProvider();
+
 function AuthProviders({ children }) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
@@ -41,11 +46,24 @@ function AuthProviders({ children }) {
                 console.log(err);
             });
     };
+    // login with google
+    const googleLogin = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    };
 
     // logout user
     const logoutUser = () => {
         setLoading(true);
-        return signOut(auth);
+        signOut(auth).then(() => {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Logout Successful',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        });
     };
 
     // user observer
@@ -66,6 +84,7 @@ function AuthProviders({ children }) {
         loading,
         user,
         logoutUser,
+        googleLogin,
     };
 
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

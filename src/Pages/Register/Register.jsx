@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -8,7 +9,7 @@ import img from '../../assets/login_bg.svg';
 import './Register.css';
 
 function Register() {
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, googleLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,6 +37,20 @@ function Register() {
                     position: 'top-center',
                     icon: 'success',
                     title: 'Registration Successful',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
+            .catch((err) => console.log(err.message));
+    };
+    const handelGoogleLogin = () => {
+        googleLogin()
+            .then(() => {
+                navigate(from, { replace: true });
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Login Successful',
                     showConfirmButton: false,
                     timer: 1500,
                 });
@@ -101,6 +116,17 @@ function Register() {
                         Login
                     </Link>
                 </p>
+                <div className="flex justify-between items-center text-lg mt-4">
+                    <div className="border border-slate-200 w-[45%]" />
+                    or
+                    <div className="border border-slate-200 w-[45%]" />
+                </div>
+                <button
+                    onClick={handelGoogleLogin}
+                    className="w-full  flex justify-center items-center gap-3 border border-slate-200 shadow h-11 rounded-lg hover:shadow-lg cursor-pointer bg-white mt-3"
+                >
+                    <FcGoogle size={30} /> <p>Login With Google</p>
+                </button>
             </div>
         </div>
     );

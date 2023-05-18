@@ -92,7 +92,7 @@ function Navbar() {
             )}
         </>
     );
-    console.log(user);
+
     return (
         <div className="sticky top-0 z-40 border-b lg:py-4 py-2 bg-white ">
             <div className="container mx-auto  hidden lg:flex justify-between items-center px-4">
