@@ -1,13 +1,17 @@
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import Spinner from '../../Components/Spinner/Spinner';
 
 function ToyDetails() {
     const toyData = useLoaderData();
+    const navigation = useNavigation();
     const { name, image, category, sellerName, sellerEmail, price, rating, description, qty } =
         toyData;
-    console.log(toyData);
+    if (navigation === 'loading') {
+        return <Spinner />;
+    }
     return (
         <div className="my-10">
             <div className="flex items-center justify-between flex-col lg:flex-row">

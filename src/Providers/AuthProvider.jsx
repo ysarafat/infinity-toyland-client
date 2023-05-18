@@ -18,11 +18,13 @@ function AuthProviders({ children }) {
     const [user, setUser] = useState(null);
     // create user
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
     // login user
 
     const loginUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
     // update user name and photo
@@ -42,6 +44,7 @@ function AuthProviders({ children }) {
 
     // logout user
     const logoutUser = () => {
+        setLoading(true);
         return signOut(auth);
     };
 

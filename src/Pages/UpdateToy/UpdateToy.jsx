@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Spinner from '../../Components/Spinner/Spinner';
 
 export const options = (
     <>
@@ -11,6 +12,7 @@ export const options = (
 );
 function UpdateToy() {
     const toyData = useLoaderData();
+    const navigation = useNavigation();
     const { _id, name, category, price, image, qty, description, rating } = toyData;
     console.log(toyData);
     const handelUpdateToy = (e) => {
@@ -54,6 +56,9 @@ function UpdateToy() {
                 console.log(data);
             });
     };
+    if (navigation === 'loading') {
+        return <Spinner />;
+    }
     return (
         <div className="mt-10">
             <form

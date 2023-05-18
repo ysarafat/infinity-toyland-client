@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
 import img from '../../assets/login_bg.svg';
 import './Register.css';
@@ -31,6 +32,13 @@ function Register() {
             .then(() => {
                 updateUser(name, photo);
                 navigate(from, { replace: true });
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch((err) => console.log(err.message));
     };

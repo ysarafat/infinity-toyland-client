@@ -1,12 +1,16 @@
 /* eslint-disable no-underscore-dangle */
 import { Table } from 'flowbite-react';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import Spinner from '../../Components/Spinner/Spinner';
 import AllToyTable from './AllToyTable';
 
 function AllToy() {
     const toys = useLoaderData();
-    console.log(toys);
+    const navigation = useNavigation();
+    if (navigation === 'loading') {
+        return <Spinner />;
+    }
     return (
         <div className="mt-10 w-full overflow-x-auto">
             <Table className="">
