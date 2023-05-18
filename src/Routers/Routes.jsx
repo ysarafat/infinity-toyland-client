@@ -5,6 +5,7 @@ import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import UpdateToy from '../Pages/UpdateToy/UpdateToy';
+import PrivateRoute from './PrivateRoute';
 
 const routes = new createBrowserRouter([
     {
@@ -17,7 +18,11 @@ const routes = new createBrowserRouter([
             },
             {
                 path: '/add-toy',
-                element: <AddToy />,
+                element: (
+                    <PrivateRoute>
+                        <AddToy />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: '/update-toy',
