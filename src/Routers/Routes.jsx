@@ -6,6 +6,7 @@ import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/Login/Login';
 import MyToys from '../Pages/MyToys/MyToys';
 import Register from '../Pages/Register/Register';
+import ToyDetails from '../Pages/ToyDetails/ToyDetails';
 import UpdateToy from '../Pages/UpdateToy/UpdateToy';
 import PrivateRoute from './PrivateRoute';
 
@@ -46,6 +47,16 @@ const routes = new createBrowserRouter([
             {
                 path: '/update-toy/:id',
                 element: <UpdateToy />,
+                loader: ({ params }) =>
+                    fetch(`https://infinity-toyland-server.vercel.app/toy/${params.id}`),
+            },
+            {
+                path: '/toy-details/:id',
+                element: (
+                    <PrivateRoute>
+                        <ToyDetails />
+                    </PrivateRoute>
+                ),
                 loader: ({ params }) =>
                     fetch(`https://infinity-toyland-server.vercel.app/toy/${params.id}`),
             },

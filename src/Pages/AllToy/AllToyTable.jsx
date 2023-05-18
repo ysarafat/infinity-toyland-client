@@ -16,7 +16,7 @@ function AllToyTable({ toys }) {
             <Table.Cell className="text-base text-secondary-text   ">{qty}</Table.Cell>
 
             <Table.Cell className="">
-                <Link to={`/update-toy/${_id}`}>
+                <Link to={`/toy-details/${_id}`}>
                     <button className=" text-primary h-8 px-4  hover:underline text-base">
                         View Details
                     </button>
