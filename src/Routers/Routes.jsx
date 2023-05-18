@@ -21,11 +21,7 @@ const routes = new createBrowserRouter([
             },
             {
                 path: '/toys',
-                element: (
-                    <PrivateRoute>
-                        <AllToy />
-                    </PrivateRoute>
-                ),
+                element: <AllToy />,
                 loader: () => fetch('https://infinity-toyland-server.vercel.app/toys'),
             },
             {

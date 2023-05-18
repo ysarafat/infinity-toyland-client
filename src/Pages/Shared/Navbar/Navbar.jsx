@@ -26,22 +26,31 @@ function Navbar() {
                 <li>All Toys</li>
             </NavLink>
 
-            <NavLink
-                to="/my-toys"
-                className={({ isActive }) =>
-                    isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
-                }
-            >
-                <li>My Toys</li>
-            </NavLink>
-            <NavLink
-                to="/add-toy"
-                className={({ isActive }) =>
-                    isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
-                }
-            >
-                <li>Add a Toy</li>
-            </NavLink>
+            {user && (
+                <>
+                    {' '}
+                    <NavLink
+                        to="/my-toys"
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'text-primary'
+                                : 'text-primary-text hover:text-primary duration-300'
+                        }
+                    >
+                        <li>My Toys</li>
+                    </NavLink>
+                    <NavLink
+                        to="/add-toy"
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'text-primary'
+                                : 'text-primary-text hover:text-primary duration-300'
+                        }
+                    >
+                        <li>Add a Toy</li>
+                    </NavLink>
+                </>
+            )}
 
             <NavLink
                 to="/blog"
@@ -51,14 +60,31 @@ function Navbar() {
             >
                 <li>Blog</li>
             </NavLink>
-            <NavLink
-                to="/register"
-                className={({ isActive }) =>
-                    isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
-                }
-            >
-                <li>Register</li>
-            </NavLink>
+            {!user && (
+                <>
+                    {' '}
+                    <NavLink
+                        to="/login"
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'text-primary'
+                                : 'text-primary-text hover:text-primary duration-300'
+                        }
+                    >
+                        <li>Login</li>
+                    </NavLink>
+                    <NavLink
+                        to="/register"
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'text-primary'
+                                : 'text-primary-text hover:text-primary duration-300'
+                        }
+                    >
+                        <li>Register</li>
+                    </NavLink>
+                </>
+            )}
             {user && (
                 <Link className="text-primary-text hover:text-primary duration-300">
                     <button onClick={logoutUser}>logout</button>
