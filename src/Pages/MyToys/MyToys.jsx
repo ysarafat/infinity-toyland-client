@@ -23,9 +23,7 @@ function MyToys() {
                     <Table.HeadCell className="text-base">Rating</Table.HeadCell>
                     <Table.HeadCell className="text-base">Stock</Table.HeadCell>
                     <Table.HeadCell className="text-base">Description</Table.HeadCell>
-                    <Table.HeadCell className="text-base">
-                        <span className="sr-only">Edit</span>
-                    </Table.HeadCell>
+                    <Table.HeadCell className="text-base">Action</Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">
                     {toys?.map((toy) => (

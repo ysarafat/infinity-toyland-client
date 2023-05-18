@@ -31,7 +31,7 @@ function AddToy() {
         console.log(toy);
 
         // send toy data to server
-        fetch('https://infinity-toyland-server.vercel.app/toys', {
+        fetch('http://localhost:5000/my-toys/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

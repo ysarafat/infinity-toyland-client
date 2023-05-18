@@ -34,8 +34,9 @@ const routes = new createBrowserRouter([
                 ),
             },
             {
-                path: '/update-toy',
+                path: '/update-toy/:id',
                 element: <UpdateToy />,
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
             },
             {
                 path: '/register',

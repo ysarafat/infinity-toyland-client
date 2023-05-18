@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 function UpdateToy() {
+    const toyData = useLoaderData();
+    const { _id, name, category, price, image, qty, description, rating } = toyData;
     const handelUpdateToy = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -15,14 +18,21 @@ function UpdateToy() {
         const toy = {
             name,
             category,
-
             price,
             rating,
             qty,
             image,
             description,
         };
-        console.log(toy);
+        fetch(`http://localhost:5000/my-toys/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(toy),
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
     };
     return (
         <div className="mt-10">
@@ -37,6 +47,7 @@ function UpdateToy() {
                         type="text"
                         name="name"
                         placeholder="Enter Toy Name"
+                        defaultValue={name}
                     />
 
                     <input
@@ -44,6 +55,7 @@ function UpdateToy() {
                         type="text"
                         name="category"
                         placeholder="Enter Toy Category"
+                        defaultValue={category}
                     />
                 </div>
 
@@ -53,6 +65,7 @@ function UpdateToy() {
                         type="number"
                         name="price"
                         placeholder="Enter Price"
+                        defaultValue={price}
                     />
 
                     <input
@@ -60,6 +73,7 @@ function UpdateToy() {
                         type="url"
                         name="image"
                         placeholder="Enter Toy Image URL"
+                        defaultValue={image}
                     />
                 </div>
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">
@@ -68,6 +82,7 @@ function UpdateToy() {
                         type="number"
                         name="qty"
                         placeholder="Enter Stock Quantity"
+                        defaultValue={qty}
                     />
 
                     <input
@@ -75,6 +90,7 @@ function UpdateToy() {
                         type="number"
                         name="rating"
                         placeholder="Enter Toy Rating"
+                        defaultValue={rating}
                     />
                 </div>
 
@@ -85,6 +101,7 @@ function UpdateToy() {
                     type="text"
                     name="details"
                     placeholder="Enter Toy Description"
+                    defaultValue={description}
                 />
                 <input
                     className="w-full bg-primary hover:bg-secondary duration-300 text-white rounded-lg h-11 text-lg"
