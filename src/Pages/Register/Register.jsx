@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import img from '../../assets/login_bg.svg';
 import './Register.css';
@@ -9,7 +9,9 @@ import './Register.css';
 function Register() {
     const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handelRegisterForm = (e) => {
         e.preventDefault();
         setError('');
@@ -28,6 +30,7 @@ function Register() {
         createUser(email, password)
             .then(() => {
                 updateUser(name, photo);
+                navigate(from, { replace: true });
             })
             .catch((err) => console.log(err.message));
     };

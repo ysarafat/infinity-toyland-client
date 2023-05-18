@@ -25,30 +25,24 @@ function Navbar() {
             >
                 <li>All Toys</li>
             </NavLink>
-            {user && (
-                <>
-                    <NavLink
-                        to="/my-toys"
-                        className={({ isActive }) =>
-                            isActive
-                                ? 'text-primary'
-                                : 'text-primary-text hover:text-primary duration-300'
-                        }
-                    >
-                        <li>My Toys</li>
-                    </NavLink>
-                    <NavLink
-                        to="/add-toy"
-                        className={({ isActive }) =>
-                            isActive
-                                ? 'text-primary'
-                                : 'text-primary-text hover:text-primary duration-300'
-                        }
-                    >
-                        <li>Add a Toy</li>
-                    </NavLink>
-                </>
-            )}
+
+            <NavLink
+                to="/my-toys"
+                className={({ isActive }) =>
+                    isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
+                }
+            >
+                <li>My Toys</li>
+            </NavLink>
+            <NavLink
+                to="/add-toy"
+                className={({ isActive }) =>
+                    isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
+                }
+            >
+                <li>Add a Toy</li>
+            </NavLink>
+
             <NavLink
                 to="/blog"
                 className={({ isActive }) =>

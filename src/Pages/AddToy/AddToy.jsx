@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 function AddToy() {
+    const { user } = useContext(AuthContext);
     const handelToyListing = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -80,6 +82,9 @@ function AddToy() {
                         name="sellerName"
                         placeholder="Enter Seller Name"
                         required
+                        defaultValue={user.displayName}
+                        readOnly
+                        title="You can't change you name"
                     />
 
                     <input
@@ -88,6 +93,9 @@ function AddToy() {
                         name="sellerEmail"
                         placeholder="Enter Seller Email"
                         required
+                        defaultValue={user.email}
+                        readOnly
+                        title="You can't change you email"
                     />
                 </div>
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">

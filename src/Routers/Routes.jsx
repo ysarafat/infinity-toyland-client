@@ -3,6 +3,7 @@ import Main from '../Layouts/Main';
 import AddToy from '../Pages/AddToy/AddToy';
 import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/Login/Login';
+import MyToys from '../Pages/MyToys/MyToys';
 import Register from '../Pages/Register/Register';
 import UpdateToy from '../Pages/UpdateToy/UpdateToy';
 import PrivateRoute from './PrivateRoute';
@@ -15,6 +16,14 @@ const routes = new createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
+            },
+            {
+                path: '/my-toys',
+                element: (
+                    <PrivateRoute>
+                        <MyToys />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: '/add-toy',
