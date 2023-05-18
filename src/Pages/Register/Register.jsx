@@ -1,26 +1,37 @@
+/* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import img from '../../assets/login_bg.svg';
 import './Register.css';
 
 function Register() {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handelRegisterForm = (e) => {
         e.preventDefault();
+        setError('');
         const form = e.target;
         const name = form.name.value;
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
-        console.log(name, email, password, confirmPassword);
+        if (password !== confirmPassword) {
+            return setError('Your password did not match');
+        }
+        if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/.test(password)) {
+            return setError('Password must be 6 digits and a letter A-Z with a special character');
+        }
         createUser(email, password)
-            .then((res) => console.log(res.user))
+            .then(() => {
+                updateUser(name, photo);
+            })
             .catch((err) => console.log(err.message));
     };
+    console.log(error);
     return (
         <div className="min-h-[calc(100vh-65px)] lg:min-h-[calc(100vh-64px)] mt-10 flex items-center flex-col-reverse lg:flex-row">
             <img className="lg:w-1/2 w-full" src={img} alt="" />

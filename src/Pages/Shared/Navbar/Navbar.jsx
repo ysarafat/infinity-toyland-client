@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiBars3BottomLeft, HiMagnifyingGlass, HiXMark } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useContext(AuthContext);
     const navLinks = (
         <>
             <NavLink
@@ -56,6 +58,7 @@ function Navbar() {
             </NavLink>
         </>
     );
+    console.log(user);
     return (
         <div className="sticky top-0 z-40 border-b lg:py-4 py-2 bg-white ">
             <div className="container mx-auto  hidden lg:flex justify-between items-center px-4">
