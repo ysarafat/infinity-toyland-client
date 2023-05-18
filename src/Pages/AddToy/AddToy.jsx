@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { options } from '../UpdateToy/UpdateToy';
 
 function AddToy() {
     const { user } = useContext(AuthContext);
@@ -31,7 +32,7 @@ function AddToy() {
         console.log(toy);
 
         // send toy data to server
-        fetch('http://localhost:5000/my-toys/toys', {
+        fetch('https://infinity-toyland-server.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -67,13 +68,13 @@ function AddToy() {
                         required
                     />
 
-                    <input
+                    <select
                         className="w-full h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-100"
-                        type="text"
                         name="category"
-                        placeholder="Enter Toy Category"
                         required
-                    />
+                    >
+                        {options}
+                    </select>
                 </div>
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">
                     <input

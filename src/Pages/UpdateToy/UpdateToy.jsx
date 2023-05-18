@@ -1,9 +1,18 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
+export const options = (
+    <>
+        <option value="Science kits">Science kits</option>
+        <option value="Engineering kits">Engineering kits</option>
+        <option value="Math learning toys">Math Toy</option>
+    </>
+);
 function UpdateToy() {
     const toyData = useLoaderData();
     const { _id, name, category, price, image, qty, description, rating } = toyData;
+    console.log(toyData);
     const handelUpdateToy = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -24,7 +33,7 @@ function UpdateToy() {
             image,
             description,
         };
-        fetch(`http://localhost:5000/my-toys/${_id}`, {
+        fetch(`https://infinity-toyland-server.vercel.app/my-toys/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -32,7 +41,18 @@ function UpdateToy() {
             body: JSON.stringify(toy),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                if (data.acknowledged === true) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Toy Update Successful',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+                console.log(data);
+            });
     };
     return (
         <div className="mt-10">
@@ -50,13 +70,13 @@ function UpdateToy() {
                         defaultValue={name}
                     />
 
-                    <input
+                    <select
                         className="w-full h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-100"
-                        type="text"
                         name="category"
-                        placeholder="Enter Toy Category"
                         defaultValue={category}
-                    />
+                    >
+                        {options}
+                    </select>
                 </div>
 
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">

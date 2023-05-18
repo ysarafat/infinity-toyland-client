@@ -2,6 +2,7 @@
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+
 import MyToysTable from './MyToysTable';
 
 function MyToys() {
@@ -14,15 +15,15 @@ function MyToys() {
     }, [toys, user]);
 
     return (
-        <div className="mt-10 max-w-full">
-            <Table>
+        <div className="mt-10 w-full overflow-x-auto">
+            <Table className="">
                 <Table.Head>
-                    <Table.HeadCell className="text-base">Product Image</Table.HeadCell>
-                    <Table.HeadCell className="text-base">Product name</Table.HeadCell>
-                    <Table.HeadCell className="text-base">Price</Table.HeadCell>
-                    <Table.HeadCell className="text-base">Rating</Table.HeadCell>
-                    <Table.HeadCell className="text-base">Stock</Table.HeadCell>
-                    <Table.HeadCell className="text-base">Description</Table.HeadCell>
+                    <Table.HeadCell className="text-base">Image</Table.HeadCell>
+                    <Table.HeadCell className="text-base">Toy name</Table.HeadCell>
+                    <Table.HeadCell className="text-base ">Price</Table.HeadCell>
+                    <Table.HeadCell className="text-base ">Rating</Table.HeadCell>
+                    <Table.HeadCell className="text-base ">Stock</Table.HeadCell>
+                    <Table.HeadCell className="text-base ">Description</Table.HeadCell>
                     <Table.HeadCell className="text-base">Action</Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y">

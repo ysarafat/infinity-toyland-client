@@ -17,7 +17,7 @@ function MyToysTable({ toys }) {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/my-toys/${_id}`, {
+                fetch(`https://infinity-toyland-server.vercel.app/my-toys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
@@ -48,10 +48,12 @@ function MyToysTable({ toys }) {
                     <p className="text-base text-secondary-text">Seller: {sellerName}</p>
                 </div>
             </Table.Cell>
-            <Table.Cell className="text-base text-secondary-text text-center">${price}</Table.Cell>
-            <Table.Cell className="text-base text-secondary-text text-center">{rating}</Table.Cell>
-            <Table.Cell className="text-base text-secondary-text text-center">{qty}</Table.Cell>
-            <Table.Cell className="hidden lg:block text-lg text-secondary-text">
+            <Table.Cell className="text-base text-secondary-text text-center ">${price}</Table.Cell>
+            <Table.Cell className="text-base text-secondary-text text-center  ">
+                {rating}
+            </Table.Cell>
+            <Table.Cell className="text-base text-secondary-text text-center  ">{qty}</Table.Cell>
+            <Table.Cell className=" text-lg text-secondary-text">
                 {description.slice(0, 50)}...
             </Table.Cell>
             <Table.Cell className="">

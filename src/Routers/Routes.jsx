@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
 import AddToy from '../Pages/AddToy/AddToy';
+import AllToy from '../Pages/AllToy/AllToy';
 import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/Login/Login';
 import MyToys from '../Pages/MyToys/MyToys';
@@ -16,6 +17,15 @@ const routes = new createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
+            },
+            {
+                path: '/toys',
+                element: (
+                    <PrivateRoute>
+                        <AllToy />
+                    </PrivateRoute>
+                ),
+                loader: () => fetch('https://infinity-toyland-server.vercel.app/toys'),
             },
             {
                 path: '/my-toys',
@@ -36,7 +46,8 @@ const routes = new createBrowserRouter([
             {
                 path: '/update-toy/:id',
                 element: <UpdateToy />,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+                loader: ({ params }) =>
+                    fetch(`https://infinity-toyland-server.vercel.app/toy/${params.id}`),
             },
             {
                 path: '/register',
