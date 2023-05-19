@@ -23,6 +23,7 @@ function ShopByCategory() {
     if (loading) {
         return <Spinner />;
     }
+
     return (
         <div className="my-10 ">
             <div className="w-full text-center mx-auto ">
@@ -43,7 +44,7 @@ function ShopByCategory() {
                         <Tab onClick={() => setIsTabActive('Math Learning Toys')}>Math Toy</Tab>
                     </TabList>
 
-                    <TabPanel>
+                    <TabPanel className="">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-5">
                             {toyData?.map((toy) => (
                                 <SubCategoryCard key={toy._id} toy={toy} />
