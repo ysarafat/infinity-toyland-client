@@ -9,7 +9,7 @@ function ToyDetails() {
     const navigation = useNavigation();
     const { name, image, category, sellerName, sellerEmail, price, rating, description, qty } =
         toyData;
-    if (navigation === 'loading') {
+    if (navigation.state === 'loading') {
         return <Spinner />;
     }
     return (

@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext } from 'react';
+import { useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Spinner from '../../Components/Spinner/Spinner';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { options } from '../UpdateToy/UpdateToy';
 
@@ -52,6 +54,10 @@ function AddToy() {
                 }
             });
     };
+    const navigate = useNavigation();
+    if (navigate.state === 'loading') {
+        return <Spinner />;
+    }
     return (
         <div className="mt-10">
             <form

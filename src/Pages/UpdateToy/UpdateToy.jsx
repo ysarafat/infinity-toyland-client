@@ -56,7 +56,7 @@ function UpdateToy() {
                 console.log(data);
             });
     };
-    if (navigation === 'loading') {
+    if (navigation.state === 'loading') {
         return <Spinner />;
     }
     return (

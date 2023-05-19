@@ -4,22 +4,34 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import Spinner from '../../../Components/Spinner/Spinner';
 import SubCategoryCard from './SubCategoryCard';
 
 function ShopByCategory() {
     const [isTabActive, setIsTabActive] = useState('Science Kits');
     const [toyData, setToyData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${isTabActive}`)
+        fetch(`https://infinity-toyland-server.vercel.app/category/${isTabActive}`)
             .then((res) => res.json())
-            .then((data) => setToyData(data));
+            .then((data) => {
+                setToyData(data);
+                setLoading(false);
+            });
     }, [isTabActive]);
+
+    if (loading) {
+        return <Spinner />;
+    }
     return (
         <div className="my-10 ">
             <div className="w-full text-center mx-auto ">
                 <h1 className="text-2xl lg:text-3xl text-primary-text font-bold">
                     Shop By Category
                 </h1>
+                <p className="text-secondary-text text-lg mb-2">
+                    Great educational toys for kids to learn about science
+                </p>
             </div>
             <div className="mt-5 ">
                 <Tabs>
