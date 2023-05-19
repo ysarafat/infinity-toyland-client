@@ -3,6 +3,7 @@ import { useNavigation } from 'react-router-dom';
 import Spinner from '../../../Components/Spinner/Spinner';
 import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
+import OurPartner from '../OurPartner/OurPartner';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
             <Banner />
             <ShopByCategory />
             <Gallery />
+            <OurPartner />
         </div>
     );
 }
