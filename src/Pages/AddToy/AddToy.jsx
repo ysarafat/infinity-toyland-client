@@ -1,5 +1,6 @@
+/* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Spinner from '../../Components/Spinner/Spinner';
@@ -8,7 +9,9 @@ import { options } from '../UpdateToy/UpdateToy';
 
 function AddToy() {
     const { user } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const handelToyListing = (e) => {
+        setError('');
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -20,6 +23,9 @@ function AddToy() {
         const qty = form.qty.value;
         const description = form.details.value;
         const image = form.image.value;
+        if (rating > 5) {
+            return setError('Sorry!!! Rating must be out of 5');
+        }
         const toy = {
             name,
             category,
@@ -54,6 +60,7 @@ function AddToy() {
                 }
             });
     };
+    console.log(error);
     const navigate = useNavigation();
     if (navigate.state === 'loading') {
         return <Spinner />;
@@ -65,6 +72,9 @@ function AddToy() {
                 className="flex flex-col gap-4 lg:gap-6 border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]"
                 action=""
             >
+                {error && (
+                    <p className="text-lg font-semibold text-red-500 text-center">⚠️ {error}</p>
+                )}
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">
                     <input
                         className="w-full h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-100"
@@ -90,8 +100,8 @@ function AddToy() {
                         placeholder="Enter Seller Name"
                         required
                         defaultValue={user.displayName}
+                        title="you can  not change your name"
                         readOnly
-                        title="You can't change you name"
                     />
 
                     <input
@@ -101,8 +111,8 @@ function AddToy() {
                         placeholder="Enter Seller Email"
                         required
                         defaultValue={user.email}
+                        title="you can  not change your email address"
                         readOnly
-                        title="You can't change you email"
                     />
                 </div>
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">

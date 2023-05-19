@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { Tooltip } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { HiBars3BottomLeft, HiMagnifyingGlass, HiXMark } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
@@ -103,14 +104,15 @@ function Navbar() {
                 </Link>
                 <div>
                     <ul className="flex items-center text-base font-medium gap-5">
-                        {navLinks}{' '}
+                        {navLinks}
                         {user && (
-                            <img
-                                title={user.displayName}
-                                className="w-10 h-10 rounded-full border-2 border-primary"
-                                src={user.photoURL}
-                                alt=""
-                            />
+                            <Tooltip content={user.displayName}>
+                                <img
+                                    className="w-10 h-10 rounded-full border-2 border-primary"
+                                    src={user.photoURL}
+                                    alt=""
+                                />
+                            </Tooltip>
                         )}
                     </ul>
                 </div>

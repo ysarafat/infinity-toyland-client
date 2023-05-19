@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-underscore-dangle */
 import { Table } from 'flowbite-react';
@@ -29,7 +30,9 @@ function AllToy() {
     return (
         <div className="my-10">
             <form onSubmit={handelSearch} className="mb-4 flex items-center gap-3">
-                <label className="text-primary-text font-semibold">Search By Title</label>
+                <label className="text-primary-text font-semibold hidden lg:block">
+                    Search By Title
+                </label>
                 <input
                     className="h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-400"
                     type="text"

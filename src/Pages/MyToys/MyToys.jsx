@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
@@ -39,6 +40,11 @@ function MyToys() {
                     ))}
                 </Table.Body>
             </Table>
+            {!toys.length && (
+                <h1 className="text-2xl text-secondary-text text-center mt-20">
+                    If you haven't added a toy yet, add a toy
+                </h1>
+            )}
         </div>
     );
 }
