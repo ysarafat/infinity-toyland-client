@@ -5,9 +5,9 @@ import Spinner from '../../Components/Spinner/Spinner';
 
 export const options = (
     <>
-        <option value="Science kits">Science kits</option>
-        <option value="Engineering kits">Engineering kits</option>
-        <option value="Math learning toys">Math Toy</option>
+        <option value="Science Kits">Science Kits</option>
+        <option value="Engineering Kits">Engineering Kits</option>
+        <option value="Math Learning Toys">Math Toy</option>
     </>
 );
 function UpdateToy() {
