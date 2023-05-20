@@ -18,6 +18,9 @@ function AllToyTable({ toys }) {
             });
         }
     };
+    const handelScroll = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <Table.Row className="bg-white  dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell>
@@ -30,7 +33,7 @@ function AllToyTable({ toys }) {
             <Table.Cell className="text-base text-secondary-text   ">{qty}</Table.Cell>
 
             <Table.Cell className="">
-                <Link to={`/toy-details/${_id}`}>
+                <Link onClick={handelScroll} to={`/toy-details/${_id}`}>
                     <button
                         onClick={handelLoginNofify}
                         className=" text-primary h-8 px-4  hover:underline text-base"

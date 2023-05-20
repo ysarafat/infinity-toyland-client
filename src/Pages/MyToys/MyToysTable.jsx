@@ -5,7 +5,9 @@ import Swal from 'sweetalert2';
 
 function MyToysTable({ toys }) {
     const { name, image, category, sellerName, price, rating, description, qty, _id } = toys;
-
+    const handelScroll = () => {
+        window.scrollTo(0, 0);
+    };
     const handelDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -55,12 +57,16 @@ function MyToysTable({ toys }) {
             <Table.Cell className="text-base text-secondary-text text-center  ">{qty}</Table.Cell>
             <Table.Cell className=" text-base text-secondary-text">
                 {description.slice(0, 50)}...
-                <Link className="text-primary   hover:underline" to={`/toy-details/${_id}`}>
+                <Link
+                    onClick={handelScroll}
+                    className="text-primary   hover:underline"
+                    to={`/toy-details/${_id}`}
+                >
                     Read More
                 </Link>
             </Table.Cell>
             <Table.Cell className="">
-                <Link to={`/update-toy/${_id}`}>
+                <Link onClick={handelScroll} to={`/update-toy/${_id}`}>
                     <button className=" text-primary h-8 px-4  hover:underline text-base">
                         Edit
                     </button>

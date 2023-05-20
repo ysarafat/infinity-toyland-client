@@ -1,7 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-underscore-dangle */
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigation } from 'react-router-dom';
@@ -20,7 +16,7 @@ function MyToys() {
         const sortValue = event.target.value;
         setSortOrder(sortValue);
     };
-
+    window.scrollTo(0, 0);
     useEffect(() => {
         fetch(
             `https://infinity-toyland-server.vercel.app/my-toys?email=${user?.email}&sort=${sortOrder}`

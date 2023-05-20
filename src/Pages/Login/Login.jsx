@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';

@@ -2,6 +2,7 @@ import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import React from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 
 function ToyDetails() {
@@ -15,6 +16,7 @@ function ToyDetails() {
     return (
         <div className="my-10">
             <div className="flex items-center justify-between flex-col lg:flex-row">
+                <DynamicTitle title={name} />
                 <div>
                     <h1 className="text-4xl text-primary-text font-bold mb-3">Toy: {name}</h1>
                     <p className="text-lg text-primary-text">Sub-Category: {category}</p>

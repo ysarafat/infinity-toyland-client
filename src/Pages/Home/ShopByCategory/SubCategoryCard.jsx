@@ -21,6 +21,9 @@ function SubCategoryCard({ toy }) {
             });
         }
     };
+    const handelScroll = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <div className="border border-general rounded-lg grid grid-rows-[auto,1fr,auto] text-primary-text bg-white">
             <div>
@@ -44,7 +47,7 @@ function SubCategoryCard({ toy }) {
                 <div className="flex items-center justify-between px-2 lg:px-4 mb-4">
                     <span className="text-3xl font-bold text-primary-text">${price}</span>
 
-                    <Link to={`/toy-details/${_id}`}>
+                    <Link onClick={handelScroll} to={`/toy-details/${_id}`}>
                         <button
                             onClick={handelLoginNofify}
                             className="rounded-lg bg-primary px-5 py-2.5 text-center text-base font-medium text-white hover:bg-secondary focus:outline-none duration-300"

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Tooltip } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { HiBars3BottomLeft, HiMagnifyingGlass, HiXMark } from 'react-icons/hi2';
@@ -13,6 +12,7 @@ function Navbar() {
         <>
             <NavLink
                 to="/"
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                     isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
                 }
@@ -21,6 +21,7 @@ function Navbar() {
             </NavLink>
             <NavLink
                 to="/toys"
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                     isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
                 }
@@ -33,6 +34,7 @@ function Navbar() {
                     {' '}
                     <NavLink
                         to="/my-toys"
+                        onClick={() => setIsOpen(!isOpen)}
                         className={({ isActive }) =>
                             isActive
                                 ? 'text-primary'
@@ -43,6 +45,7 @@ function Navbar() {
                     </NavLink>
                     <NavLink
                         to="/add-toy"
+                        onClick={() => setIsOpen(!isOpen)}
                         className={({ isActive }) =>
                             isActive
                                 ? 'text-primary'
@@ -56,6 +59,7 @@ function Navbar() {
 
             <NavLink
                 to="/blog"
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                     isActive ? 'text-primary' : 'text-primary-text hover:text-primary duration-300'
                 }
@@ -67,6 +71,7 @@ function Navbar() {
                     {' '}
                     <NavLink
                         to="/login"
+                        onClick={() => setIsOpen(!isOpen)}
                         className={({ isActive }) =>
                             isActive
                                 ? 'text-primary'
@@ -77,6 +82,7 @@ function Navbar() {
                     </NavLink>
                     <NavLink
                         to="/register"
+                        onClick={() => setIsOpen(!isOpen)}
                         className={({ isActive }) =>
                             isActive
                                 ? 'text-primary'
@@ -88,7 +94,10 @@ function Navbar() {
                 </>
             )}
             {user && (
-                <Link className="text-primary-text hover:text-primary duration-300">
+                <Link
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="text-primary-text hover:text-primary duration-300"
+                >
                     <button onClick={logoutUser}>logout</button>
                 </Link>
             )}

@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable no-underscore-dangle */
 import { Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
@@ -14,6 +11,7 @@ function AllToy() {
     const toysData = useLoaderData();
     useEffect(() => {
         setToys(toysData);
+        window.scrollTo(0, 0);
     }, []);
 
     const navigation = useNavigation();

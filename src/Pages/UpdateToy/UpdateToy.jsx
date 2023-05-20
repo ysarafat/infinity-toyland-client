@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -69,9 +68,11 @@ function UpdateToy() {
                 console.log(data);
             });
     };
+    window.scrollTo(0, 0);
     if (navigation.state === 'loading') {
         return <Spinner />;
     }
+
     return (
         <div className="my-10">
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">

@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useContext, useState } from 'react';
 import { useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -74,6 +72,7 @@ function AddToy() {
     if (navigate.state === 'loading') {
         return <Spinner />;
     }
+    window.scrollTo(0, 0);
     return (
         <div className="my-16">
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
