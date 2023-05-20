@@ -22,7 +22,7 @@ function SubCategoryCard({ toy }) {
         }
     };
     return (
-        <div className="border border-general rounded-lg grid grid-rows-[auto,1fr,auto] text-primary-text">
+        <div className="border border-general rounded-lg grid grid-rows-[auto,1fr,auto] text-primary-text bg-white">
             <div>
                 <img
                     className="w-full rounded-t-lg h-[300px] object-fill lg:h-[320px]"
@@ -30,7 +30,7 @@ function SubCategoryCard({ toy }) {
                     alt=""
                 />
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow ">
                 <h1 className="text-xl font-semibold my-3 px-2 lg:px-4 card">{name}</h1>
                 <div className="mt-2.5 mb-5 flex items-center px-2 lg:px-4">
                     <Rating className="" style={{ maxWidth: 120 }} value={rating} readOnly />
@@ -40,7 +40,7 @@ function SubCategoryCard({ toy }) {
                 </div>
             </div>
 
-            <div className="self-end ">
+            <div className="self-end">
                 <div className="flex items-center justify-between px-2 lg:px-4 mb-4">
                     <span className="text-3xl font-bold text-primary-text">${price}</span>
 
