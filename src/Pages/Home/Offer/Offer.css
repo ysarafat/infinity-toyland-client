@@ -1,0 +1,11 @@
+.offer_bg {
+  background-image: linear-gradient(
+      360deg,
+      hsla(0, 0%, 0%, 0.301) 0%,
+      rgba(0, 0, 0, 0.733) 100%
+    ),
+    url("https://i.ibb.co/YWjJdDW/donald-duck-g5b30b8274-1920.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
