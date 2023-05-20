@@ -1,9 +1,23 @@
 import { Table } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 function AllToyTable({ toys }) {
     const { name, category, sellerName, price, qty, _id } = toys;
+    const { user } = useContext(AuthContext);
+    const handelLoginNofify = () => {
+        if (!user) {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: 'You have to log in first to view details',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+    };
     return (
         <Table.Row className="bg-white  dark:border-gray-700 dark:bg-gray-800">
             <Table.Cell>
@@ -17,7 +31,10 @@ function AllToyTable({ toys }) {
 
             <Table.Cell className="">
                 <Link to={`/toy-details/${_id}`}>
-                    <button className=" text-primary h-8 px-4  hover:underline text-base">
+                    <button
+                        onClick={handelLoginNofify}
+                        className=" text-primary h-8 px-4  hover:underline text-base"
+                    >
                         View Details
                     </button>
                 </Link>

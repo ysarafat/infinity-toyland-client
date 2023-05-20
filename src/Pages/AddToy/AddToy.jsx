@@ -160,6 +160,7 @@ function AddToy() {
                         className="w-full h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-100"
                         type="number"
                         name="rating"
+                        step="any"
                         placeholder="Enter Toy Rating"
                         required
                     />

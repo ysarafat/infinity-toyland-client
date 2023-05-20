@@ -1,11 +1,26 @@
 /* eslint-disable no-underscore-dangle */
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 function SubCategoryCard({ toy }) {
+    const { user } = useContext(AuthContext);
     const { name, image, _id, rating, price } = toy;
+
+    const handelLoginNofify = () => {
+        if (!user) {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: 'You have to log in first to view details',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+    };
     return (
         <div className="border border-general rounded-lg grid grid-rows-[auto,1fr,auto] text-primary-text">
             <div>
@@ -30,7 +45,10 @@ function SubCategoryCard({ toy }) {
                     <span className="text-3xl font-bold text-primary-text">${price}</span>
 
                     <Link to={`/toy-details/${_id}`}>
-                        <button className="rounded-lg bg-primary px-5 py-2.5 text-center text-base font-medium text-white hover:bg-secondary focus:outline-none duration-300">
+                        <button
+                            onClick={handelLoginNofify}
+                            className="rounded-lg bg-primary px-5 py-2.5 text-center text-base font-medium text-white hover:bg-secondary focus:outline-none duration-300"
+                        >
                             View Details
                         </button>
                     </Link>

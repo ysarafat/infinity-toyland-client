@@ -3,6 +3,7 @@ import { Tooltip } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import { HiBars3BottomLeft, HiMagnifyingGlass, HiXMark } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
+import logo from '../../../../public/Logo.png';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 function Navbar() {
@@ -98,9 +99,12 @@ function Navbar() {
         <div className="sticky top-0 z-40 border-b lg:py-4 py-2 bg-white ">
             <div className="container mx-auto  hidden lg:flex justify-between items-center px-4">
                 <Link to="/">
-                    <h1 className="text-2xl font-bold text-primary-text ">
-                        INFINITY <span className="text-primary">TOYLAND</span>
-                    </h1>
+                    <div className="flex items-center gap-3">
+                        <img className="w-10 h-10" src={logo} alt="" />
+                        <h1 className="text-2xl font-bold text-primary-text ">
+                            INFINITY <span className="text-primary">TOYLAND</span>
+                        </h1>
+                    </div>
                 </Link>
                 <div>
                     <ul className="flex items-center text-base font-medium gap-5">
@@ -138,9 +142,12 @@ function Navbar() {
                 )}
                 <div>
                     <Link to="/">
-                        <h1 className="text-2xl font-bold text-primary-text ">
-                            INFINITY <span className="text-primary">TOYLAND</span>
-                        </h1>
+                        <div className="flex items-center gap-3">
+                            <img className="w-8 h-8" src={logo} alt="" />
+                            <h1 className="text-2xl font-bold text-primary-text ">
+                                INFINITY <span className="text-primary">TOYLAND</span>
+                            </h1>
+                        </div>
                     </Link>
                 </div>
                 <button>

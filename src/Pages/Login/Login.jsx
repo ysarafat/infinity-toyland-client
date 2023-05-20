@@ -66,7 +66,7 @@ function Login() {
             });
     };
     return (
-        <div className="min-h-[calc(100vh-65px)] lg:min-h-[calc(100vh-64px)] mt-10 flex items-center flex-col-reverse lg:flex-row">
+        <div className="lg:min-h-[calc(100vh-64px)] my-10 flex items-center flex-col-reverse lg:flex-row">
             <DynamicTitle title="Login" />
             <img className="lg:w-1/2 w-full" src={img} alt="" />
             <div className="w-full  border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]">
