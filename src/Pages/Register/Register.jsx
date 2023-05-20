@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import { AuthContext } from '../../Providers/AuthProvider';
 import img from '../../assets/login_bg.svg';
-import './Register.css';
 
 function Register() {
     const { createUser, updateUser, googleLogin } = useContext(AuthContext);

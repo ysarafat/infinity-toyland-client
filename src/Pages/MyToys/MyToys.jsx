@@ -16,7 +16,7 @@ function MyToys() {
         const sortValue = event.target.value;
         setSortOrder(sortValue);
     };
-    window.scrollTo(0, 0);
+ 
     useEffect(() => {
         fetch(
             `https://infinity-toyland-server.vercel.app/my-toys?email=${user?.email}&sort=${sortOrder}`
