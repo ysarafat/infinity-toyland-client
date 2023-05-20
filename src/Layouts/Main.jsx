@@ -7,7 +7,7 @@ function Main() {
     return (
         <div>
             <Navbar />
-            <div className="container mx-auto px-4 min-h-[calc(100vh-412px)]">
+            <div className="container mx-auto px-4 min-h-[calc(100vh-408px)]">
                 <Outlet />
             </div>
             <Footer />

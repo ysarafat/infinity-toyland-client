@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
 import AddToy from '../Pages/AddToy/AddToy';
 import AllToy from '../Pages/AllToy/AllToy';
+import Blog from '../Pages/Blog/Blog';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home/Home';
 import Login from '../Pages/Login/Login';
@@ -66,6 +67,10 @@ const routes = new createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />,
+            },
+            {
+                path: '/blog',
+                element: <Blog />,
             },
         ],
     },
