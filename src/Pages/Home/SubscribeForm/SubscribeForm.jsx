@@ -2,7 +2,7 @@
 
 function SubscribeForm() {
     return (
-        <div className="my-10 border border-slate-200 rounded-lg">
+        <div className="my-10 border border-slate-200 rounded-lg bg-[#f1f5f9]">
             <div className=" flex justify-between items-center flex-col lg:flex-row">
                 <img
                     className="lg:max-w-[600px] max-h-[800px] rounded-lg"
@@ -10,7 +10,7 @@ function SubscribeForm() {
                     alt=""
                 />
                 <div
-                    className="px-4 container mx-auto flex justify-center items-center flex-col py-14"
+                    className="px-4 container mx-auto flex justify-center items-center flex-col py-14 "
                     data-aos="fade-down"
                     data-aos-duration="1000"
                 >

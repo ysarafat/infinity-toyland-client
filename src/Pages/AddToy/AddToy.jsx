@@ -23,6 +23,8 @@ function AddToy() {
         const qty = form.qty.value;
         const description = form.details.value;
         const image = form.image.value;
+        const priceValue = parseFloat(price);
+
         if (rating > 5) {
             return setError('Sorry!!! Rating must be out of 5');
         }
@@ -31,7 +33,7 @@ function AddToy() {
             category,
             sellerName,
             sellerEmail,
-            price,
+            price: priceValue,
             rating,
             qty,
             image,
