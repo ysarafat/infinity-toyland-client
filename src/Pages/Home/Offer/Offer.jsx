@@ -16,11 +16,12 @@ function Offer() {
             <div className="offer_bg w-full container mx-auto rounded-lg mt-10 lg:px-32">
                 <div className="container mx-auto px-4 flex justify-between items-center flex-col lg:flex-row py-8">
                     <img
+                        data-aos="fade-down"
                         className="lg:max-w-[600px] max-h-[800px]"
                         src="https://i.ibb.co/vYyjVLc/My-project.png"
                         alt=""
                     />
-                    <div>
+                    <div data-aos="fade-up">
                         <p className="text-lg text-white uppercase">Weekend Offer</p>
                         <h1 className="lg:text-7xl text-4xl text-primary  font-bold ">30% OFF</h1>
                         <p className="text-lg text-white ">

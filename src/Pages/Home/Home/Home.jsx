@@ -6,6 +6,7 @@ import Gallery from '../Gallery/Gallery';
 import Offer from '../Offer/Offer';
 import OurPartner from '../OurPartner/OurPartner';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
+import SubscribeForm from '../SubscribeForm/SubscribeForm';
 
 function Home() {
     const navigate = useNavigation();
@@ -19,6 +20,7 @@ function Home() {
             <Offer />
             <Gallery />
             <OurPartner />
+            <SubscribeForm />
         </div>
     );
 }
