@@ -26,8 +26,14 @@ function AddToy() {
         const image = form.image.value;
         const priceValue = parseFloat(price);
 
-        if (rating > 5) {
+        if (rating > 5 || rating < 0) {
             return setError('Sorry!!! Rating must be out of 5');
+        }
+        if (price < 0) {
+            return setError('Sorry!!! Price value cannot be negative');
+        }
+        if (qty < 0) {
+            return setError('Sorry!!! Stock Quantity value cannot be negative');
         }
         const toy = {
             name,
@@ -69,7 +75,11 @@ function AddToy() {
         return <Spinner />;
     }
     return (
-        <div className="mt-10">
+        <div className="my-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
+                Add a Toy
+            </h1>
+
             <DynamicTitle title="Add a Toy" />
             <form
                 onSubmit={handelToyListing}
@@ -125,6 +135,7 @@ function AddToy() {
                         type="number"
                         name="price"
                         placeholder="Enter Price"
+                        step="any"
                         required
                     />
 

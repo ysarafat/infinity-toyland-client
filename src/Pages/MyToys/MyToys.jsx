@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
@@ -26,7 +27,7 @@ function MyToys() {
         )
             .then((res) => res.json())
             .then((data) => setToys(data));
-    }, [sortOrder, user]);
+    }, [toys, user]);
 
     const navigate = useNavigation();
     if (navigate.state === 'loading') {
@@ -35,6 +36,9 @@ function MyToys() {
 
     return (
         <div className="my-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
+                My Toys
+            </h1>
             <DynamicTitle title="My Toys" />
             <div className="flex justify-end items-center">
                 <label className="text-primary-text font-semibold mr-2">Sort By price: </label>

@@ -30,8 +30,11 @@ function AllToy() {
     };
     return (
         <div className="my-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
+                All Toy
+            </h1>
             <DynamicTitle title="All Toy" />
-            <form onSubmit={handelSearch} className="mb-4 flex items-center gap-3">
+            <form onSubmit={handelSearch} className="mb-5 flex items-center justify-end gap-3">
                 <label className="text-primary-text font-semibold hidden lg:block">
                     Search By Title
                 </label>

@@ -1,6 +1,8 @@
-import React from 'react';
+/* eslint-disable consistent-return */
+import React, { useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 
 export const options = (
@@ -11,25 +13,36 @@ export const options = (
     </>
 );
 function UpdateToy() {
+    const [error, setError] = useState('');
     const toyData = useLoaderData();
     const navigation = useNavigation();
     const { _id, name, category, price, image, qty, description, rating } = toyData;
     console.log(toyData);
     const handelUpdateToy = (e) => {
+        setError('');
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const category = form.category.value;
-
         const price = form.price.value;
         const rating = form.rating.value;
         const qty = form.qty.value;
         const description = form.details.value;
         const image = form.image.value;
+        const priceValue = parseFloat(price);
+        if (rating > 5 || rating < 0) {
+            return setError('Sorry!!! Rating must be out of 5');
+        }
+        if (price < 0) {
+            return setError('Sorry!!! Price value cannot be negative');
+        }
+        if (qty < 0) {
+            return setError('Sorry!!! Stock Quantity value cannot be negative');
+        }
         const toy = {
             name,
             category,
-            price,
+            price: priceValue,
             rating,
             qty,
             image,
@@ -60,12 +73,20 @@ function UpdateToy() {
         return <Spinner />;
     }
     return (
-        <div className="mt-10">
+        <div className="my-10">
+            <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
+                Update Toy
+            </h1>
+
+            <DynamicTitle title="Update Toy" />
             <form
                 onSubmit={handelUpdateToy}
                 className="flex flex-col gap-4 lg:gap-6 border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]"
                 action=""
             >
+                {error && (
+                    <p className="text-lg font-semibold text-red-500 text-center">⚠️ {error}</p>
+                )}
                 <div className="flex gap-4 lg:gap-6 items-center flex-col lg:flex-row">
                     <input
                         className="w-full h-11 px-3 rounded-lg border shadow hover:shadow-lg border-slate-100"
