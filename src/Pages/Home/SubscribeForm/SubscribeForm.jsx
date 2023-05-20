@@ -2,7 +2,7 @@
 
 function SubscribeForm() {
     return (
-        <div className="my-10 border border-slate-200 rounded-lg bg-[#f1f5f9]">
+        <div className="my-16 border border-slate-200 rounded-lg bg-[#f1f5f9]">
             <div className=" flex justify-between items-center flex-col lg:flex-row">
                 <img
                     className="lg:max-w-[600px] max-h-[800px] rounded-lg"

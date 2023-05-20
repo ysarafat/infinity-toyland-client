@@ -28,7 +28,7 @@ function ToyDetails() {
                     <p className="text-lg text-primary-text">Stock Quantity: {qty}</p>
                 </div>
                 <div className="">
-                    <img className="w-[800px] lg:h-[650px]" src={image} alt="" />
+                    <img className="w-[800px] lg:h-[650px] rounded-lg" src={image} alt="" />
                 </div>
             </div>
             <div className="mt-5">

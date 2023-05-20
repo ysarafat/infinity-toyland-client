@@ -25,7 +25,7 @@ function ShopByCategory() {
     }
 
     return (
-        <div className="my-10 ">
+        <div className="my-16 ">
             <div className="w-full text-center mx-auto ">
                 <h1 className="text-2xl lg:text-3xl text-primary-text font-bold">
                     Shop By Category
@@ -34,7 +34,7 @@ function ShopByCategory() {
                     Great educational toys for kids to learn about science
                 </p>
             </div>
-            <div className="mt-5 ">
+            <div className="mt-10 ">
                 <Tabs>
                     <TabList>
                         <Tab onClick={() => setIsTabActive('Science Kits')}>Science Kits</Tab>

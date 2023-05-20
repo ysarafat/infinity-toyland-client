@@ -53,8 +53,11 @@ function MyToysTable({ toys }) {
                 {rating}
             </Table.Cell>
             <Table.Cell className="text-base text-secondary-text text-center  ">{qty}</Table.Cell>
-            <Table.Cell className=" text-lg text-secondary-text">
+            <Table.Cell className=" text-base text-secondary-text">
                 {description.slice(0, 50)}...
+                <Link className="text-primary   hover:underline" to={`/toy-details/${_id}`}>
+                    Read More
+                </Link>
             </Table.Cell>
             <Table.Cell className="">
                 <Link to={`/update-toy/${_id}`}>

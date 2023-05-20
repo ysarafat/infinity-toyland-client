@@ -35,7 +35,7 @@ function MyToys() {
     }
 
     return (
-        <div className="my-10">
+        <div className="my-16">
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 My Toys
             </h1>
