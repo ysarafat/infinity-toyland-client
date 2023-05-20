@@ -8,15 +8,19 @@ import {
     BsTwitter,
 } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import logo from '../../../../public/Logo.png';
 
 function Footer() {
     return (
         <footer className="bg-secondary text-slate-300 ">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 container mx-auto px-4 justify-items-center-start lg:justify-items-center py-14 ">
                 <div className="">
-                    <h1 className="text-white font-bold text-2xl bold ">
-                        INFINITY <span className="text-primary">TOYLAND</span>
-                    </h1>
+                    <div className="flex items-center gap-3">
+                        <img className="w-8 h-8" src={logo} alt="" />
+                        <h1 className="text-2xl font-bold text-white ">
+                            INFINITY <span className="text-primary">TOYLAND</span>
+                        </h1>
+                    </div>
                     <p className="mt-2">
                         Welcome to Infinity Toyland, your ultimate destination for all things
                         toy-related! Our website is a magical wonderland where enthusiasts.

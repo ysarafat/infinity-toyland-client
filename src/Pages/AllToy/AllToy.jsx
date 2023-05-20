@@ -61,7 +61,7 @@ function AllToy() {
                         <Table.HeadCell className="text-base ">View Details</Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {toys.slice(0, 20)?.map((toy) => (
+                        {toys?.map((toy) => (
                             <AllToyTable key={toy._id} toys={toy} />
                         ))}
                     </Table.Body>
