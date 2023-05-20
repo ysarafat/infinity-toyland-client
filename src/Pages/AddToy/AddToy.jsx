@@ -3,6 +3,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { options } from '../UpdateToy/UpdateToy';
@@ -69,6 +70,7 @@ function AddToy() {
     }
     return (
         <div className="mt-10">
+            <DynamicTitle title="Add a Toy" />
             <form
                 onSubmit={handelToyListing}
                 className="flex flex-col gap-4 lg:gap-6 border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]"

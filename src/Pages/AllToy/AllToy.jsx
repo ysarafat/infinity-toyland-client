@@ -4,6 +4,7 @@
 import { Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 import AllToyTable from './AllToyTable';
 
@@ -29,6 +30,7 @@ function AllToy() {
     };
     return (
         <div className="my-10">
+            <DynamicTitle title="All Toy" />
             <form onSubmit={handelSearch} className="mb-4 flex items-center gap-3">
                 <label className="text-primary-text font-semibold hidden lg:block">
                     Search By Title

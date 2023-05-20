@@ -4,6 +4,7 @@ import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import { AuthContext } from '../../Providers/AuthProvider';
 import img from '../../assets/login_bg.svg';
 import './Register.css';
@@ -60,6 +61,7 @@ function Register() {
     console.log(error);
     return (
         <div className="min-h-[calc(100vh-65px)] lg:min-h-[calc(100vh-64px)] mt-10 flex items-center flex-col-reverse lg:flex-row">
+            <DynamicTitle title="Register" />
             <img className="lg:w-1/2 w-full" src={img} alt="" />
             <div className="w-full  border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]">
                 <h1 className="text-2xl lg:text-3xl font-bold text-center mb-4">Register</h1>

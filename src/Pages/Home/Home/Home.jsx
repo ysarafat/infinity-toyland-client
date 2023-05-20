@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigation } from 'react-router-dom';
+import DynamicTitle from '../../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../../Components/Spinner/Spinner';
 import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
@@ -15,6 +16,7 @@ function Home() {
     }
     return (
         <div>
+            <DynamicTitle title="Home" />
             <Banner />
             <ShopByCategory />
             <Offer />

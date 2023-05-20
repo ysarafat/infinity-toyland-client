@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
+import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 import MyToysTable from './MyToysTable';
 
@@ -33,7 +34,8 @@ function MyToys() {
     }
 
     return (
-        <div className="mt-10">
+        <div className="my-10">
+            <DynamicTitle title="My Toys" />
             <div className="flex justify-end items-center">
                 <label className="text-primary-text font-semibold mr-2">Sort By price: </label>
                 <select
