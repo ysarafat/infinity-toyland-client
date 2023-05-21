@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
@@ -75,6 +75,7 @@ function UpdateToy() {
 
     return (
         <div className="my-10">
+            <ScrollRestoration />
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 Update Toy
             </h1>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, ScrollRestoration, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -60,6 +60,7 @@ function Register() {
 
     return (
         <div className=" lg:min-h-[calc(100vh-64px)] my-10 flex items-center flex-col-reverse lg:flex-row">
+            <ScrollRestoration />
             <DynamicTitle title="Register" />
             <img className="lg:w-1/2 w-full" src={img} alt="" />
             <div className="w-full  border border-slate-200 p-4 lg:p-8 rounded-lg bg-[#f1f5f9]">

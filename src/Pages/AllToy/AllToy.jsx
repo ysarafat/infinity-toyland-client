@@ -1,6 +1,6 @@
 import { Table } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData, useNavigation } from 'react-router-dom';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 import AllToyTable from './AllToyTable';
@@ -11,7 +11,6 @@ function AllToy() {
     const toysData = useLoaderData();
     useEffect(() => {
         setToys(toysData);
-        window.scrollTo(0, 0);
     }, []);
 
     const navigation = useNavigation();
@@ -28,6 +27,7 @@ function AllToy() {
     };
     return (
         <div className="my-16">
+            <ScrollRestoration />
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 All Toy
             </h1>

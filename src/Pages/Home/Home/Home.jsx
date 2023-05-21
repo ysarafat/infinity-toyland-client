@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useNavigation } from 'react-router-dom';
 import DynamicTitle from '../../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../../Components/Spinner/Spinner';
 import Banner from '../Banner/Banner';
@@ -14,8 +14,10 @@ function Home() {
     if (navigate.state === 'loading') {
         return <Spinner />;
     }
+
     return (
         <div>
+            <ScrollRestoration />
             <DynamicTitle title="Home" />
             <Banner />
             <ShopByCategory />

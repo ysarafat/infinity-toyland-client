@@ -1,10 +1,11 @@
 import React from 'react';
+import { ScrollRestoration } from 'react-router-dom';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 
 function Blog() {
-    window.scrollTo(0, 0);
     return (
         <div className="my-16 min-h-[calc(100vh-408px)]">
+            <ScrollRestoration />
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 Blog
             </h1>

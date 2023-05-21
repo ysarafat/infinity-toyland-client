@@ -46,7 +46,11 @@ const routes = new createBrowserRouter([
             },
             {
                 path: '/update-toy/:id',
-                element: <UpdateToy />,
+                element: (
+                    <PrivateRoute>
+                        <UpdateToy />
+                    </PrivateRoute>
+                ),
                 loader: ({ params }) =>
                     fetch(`https://infinity-toyland-server.vercel.app/toy/${params.id}`),
             },

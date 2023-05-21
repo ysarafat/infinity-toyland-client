@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
@@ -72,9 +72,10 @@ function AddToy() {
     if (navigate.state === 'loading') {
         return <Spinner />;
     }
-    window.scrollTo(0, 0);
+
     return (
         <div className="my-16">
+            <ScrollRestoration />
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 Add a Toy
             </h1>
@@ -114,7 +115,6 @@ function AddToy() {
                         required
                         defaultValue={user.displayName}
                         title="you can  not change your name"
-                        readOnly
                     />
 
                     <input

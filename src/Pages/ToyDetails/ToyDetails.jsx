@@ -1,7 +1,7 @@
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import React from 'react';
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData, useNavigation } from 'react-router-dom';
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../Components/Spinner/Spinner';
 
@@ -13,8 +13,10 @@ function ToyDetails() {
     if (navigation.state === 'loading') {
         return <Spinner />;
     }
+
     return (
         <div className="my-10">
+            <ScrollRestoration />
             <div className="flex items-center justify-between flex-col lg:flex-row">
                 <DynamicTitle title={name} />
                 <div>

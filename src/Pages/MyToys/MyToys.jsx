@@ -1,6 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Table } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigation } from 'react-router-dom';
+import { ScrollRestoration, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 import DynamicTitle from '../../Components/DynamicTitle/DynamicTitle';
@@ -16,7 +20,7 @@ function MyToys() {
         const sortValue = event.target.value;
         setSortOrder(sortValue);
     };
- 
+
     useEffect(() => {
         fetch(
             `https://infinity-toyland-server.vercel.app/my-toys?email=${user?.email}&sort=${sortOrder}`
@@ -35,6 +39,7 @@ function MyToys() {
             <h1 className="text-3xl lg:text-4xl font-bold text-center mb-10 text-primary-text">
                 My Toys
             </h1>
+            <ScrollRestoration />
             <DynamicTitle title="My Toys" />
             <div className="flex justify-end items-center">
                 <label className="text-primary-text font-semibold mr-2">Sort By price: </label>
