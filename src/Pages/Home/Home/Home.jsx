@@ -3,6 +3,7 @@ import { ScrollRestoration, useNavigation } from 'react-router-dom';
 import DynamicTitle from '../../../Components/DynamicTitle/DynamicTitle';
 import Spinner from '../../../Components/Spinner/Spinner';
 import Banner from '../Banner/Banner';
+import Blog from '../Blogs/Blogs';
 import Gallery from '../Gallery/Gallery';
 import Offer from '../Offer/Offer';
 import OurPartner from '../OurPartner/OurPartner';
@@ -23,6 +24,7 @@ function Home() {
             <ShopByCategory />
             <Offer />
             <Gallery />
+            <Blog />
             <OurPartner />
             <SubscribeForm />
         </div>
