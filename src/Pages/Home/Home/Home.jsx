@@ -9,6 +9,7 @@ import Offer from '../Offer/Offer';
 import OurPartner from '../OurPartner/OurPartner';
 import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import SubscribeForm from '../SubscribeForm/SubscribeForm';
+import Testimonials from '../Testimonials/Testimonials';
 
 function Home() {
     const navigate = useNavigation();
@@ -25,6 +26,7 @@ function Home() {
             <Offer />
             <Gallery />
             <Blog />
+            <Testimonials />
             <OurPartner />
             <SubscribeForm />
         </div>

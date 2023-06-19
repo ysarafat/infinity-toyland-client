@@ -10,3 +10,10 @@ body {
   font-family: "Poppins", sans-serif;
   /* background-color: ; */
 }
+
+.swiper-button-next {
+  color: #5057fe;
+}
+.swiper-button-prev {
+  color: #5057fe;
+}
